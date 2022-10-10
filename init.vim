@@ -18,8 +18,8 @@ colorscheme gruvbox
 
 
 " Mapping config
-source vim-config/vim-config.vim
+runtime vim-config/vim-config.vim
 
 lua << END
-require('lua/init')
+require('lua.init')
 END
