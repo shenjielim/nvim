@@ -10,8 +10,12 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'ryanoasis/vim-devicons'
-
+Plug 'morhetz/gruvbox' 
 call plug#end()
+
+" colorscheme evening
+colorscheme gruvbox
+
 
 " Mapping config
 source vim-config/vim-config.vim

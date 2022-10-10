@@ -1,3 +1,2 @@
-let path = expand('%:p:h')
-exec 'source' path . '/mapping.vim'
-exec 'source' path . '/nerdTree.vim'
+exec 'source' 'C:\Users\D1347146\AppData\Local\nvim\vim-config\nerdTree.vim'
+exec 'source' 'C:\Users\D1347146\AppData\Local\nvim\vim-config\mapping.vim'
