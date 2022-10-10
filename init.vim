@@ -14,10 +14,8 @@ Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " Mapping config
-source mapping.vim
+source vim-config/vim-config.vim
 
-" NERDTree config
-runtime nerdTree.vim
 lua << END
 require('lua/init')
 END
