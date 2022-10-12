@@ -1,3 +1,4 @@
+vim.cmd([[
 set encoding=utf8           " encoding 
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching 
@@ -75,4 +76,5 @@ nnoremap gf :vert winc f<cr>
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal! g'\"" | endif
-endif
+
+]])
