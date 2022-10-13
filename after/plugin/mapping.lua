@@ -75,6 +75,10 @@ nnoremap gf :vert winc f<cr>
 " Vim jump to the last position when reopening a file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal! g'\"" | endif
+    \| exe "normal! g'\"" | 
+    endif
 
+if exists('g:loaded_webdevicons')
+    call webdevicons#refresh()
+endif
 ]])
