@@ -10,8 +10,17 @@ Plug('junegunn/fzf', {['do'] = vim.fn['fzf#install']})
 Plug 'junegunn/fzf.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'morhetz/gruvbox' 
+Plug 'lewis6991/impatient.nvim'
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'neovim/nvim-lspconfig'
 vim.call('plug#end')
 
+--startup time
+require('impatient')
+--Starting Language servers
+require("mason").setup()
+require("mason-lspconfig").setup()
 --colorscheme 
 vim.cmd([[colorscheme gruvbox]])
 require('custom-gruvbox')
