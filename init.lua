@@ -9,13 +9,14 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug('junegunn/fzf', {['do'] = vim.fn['fzf#install']})
 Plug 'junegunn/fzf.vim'
 Plug 'ryanoasis/vim-devicons'
-Plug 'morhetz/gruvbox' 
+Plug 'morhetz/gruvbox'
 Plug 'lewis6991/impatient.nvim'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
 vim.call('plug#end')
 
+--auto download plugins if missing
 vim.cmd([[
 autocmd VimEnter *
   \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
@@ -26,6 +27,8 @@ autocmd VimEnter *
 --startup time
 require('impatient')
 
+
+
 --Starting Language servers
 require("mason").setup()
 require("mason-lspconfig").setup({
@@ -35,6 +38,7 @@ require("mason-lspconfig").setup({
 --colorscheme 
 vim.cmd([[colorscheme gruvbox]])
 require('custom-gruvbox')
+
 
 --config lua language server
 require'lspconfig'.sumneko_lua.setup {
@@ -59,7 +63,3 @@ require'lspconfig'.sumneko_lua.setup {
     },
   },
 }
-
--- start lua language server
-require'lspconfig'.sumneko_lua.setup{}
-
