@@ -39,6 +39,44 @@ vim.cmd([[
 set completeopt=menu,menuone,noselect
 ]])
 
+--colorscheme 
+vim.cmd([[
+colorscheme gruvbox
+highlight! link CmpItemAbbr Fg
+highlight! link CmpItemAbbrMatch orange 
+highlight! link CmpItemAbbrMatchFuzzy orange 
+highlight! link CmpItemAbbrDeprecated Fg
+highlight! link CmpItemMenu Fg
+highlight! link CmpItemKind Yellow
+highlight! link CmpItemKindText Fg
+highlight! link CmpItemKindMethod Green
+highlight! link CmpItemKindFunction Green
+highlight! link CmpItemKindConstructor Green
+highlight! link CmpItemKindField Green
+highlight! link CmpItemKindVariable Blue
+highlight! link CmpItemKindClass Yellow
+highlight! link CmpItemKindInterface Yellow
+highlight! link CmpItemKindModule Yellow
+highlight! link CmpItemKindProperty Blue
+highlight! link CmpItemKindUnit Purple
+highlight! link CmpItemKindValue Purple
+highlight! link CmpItemKindEnum Yellow
+highlight! link CmpItemKindKeyword Red
+highlight! link CmpItemKindSnippet Aqua
+highlight! link CmpItemKindColor Aqua
+highlight! link CmpItemKindFile Aqua
+highlight! link CmpItemKindReference Blue
+highlight! link CmpItemKindFolder Aqua
+highlight! link CmpItemKindEnumMember Blue
+highlight! link CmpItemKindConstant Blue
+highlight! link CmpItemKindStruct Yellow
+highlight! link CmpItemKindEvent Orange
+highlight! link CmpItemKindOperator Orange
+highlight! link CmpItemKindTypeParameter Yellow
+]])
+
+require('custom-gruvbox')
+
 -- Set up nvim-cmp.
 local cmp = require'cmp'
 
@@ -53,8 +91,11 @@ cmp.setup({
         end,
     },
     window = {
-        -- completion = cmp.config.window.bordered(),
+        -- Cmp = cmp.config.window.bordered(),
         -- documentation = cmp.config.window.bordered(),
+    },
+    view = {
+        entries = "custom"
     },
     mapping = cmp.mapping.preset.insert({
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -101,6 +142,10 @@ cmp.setup.cmdline(':', {
     })
 })
 
+
+-- Set up lspconfig.
+CAPABILITIES = require('cmp_nvim_lsp').default_capabilities()
+
 --Starting Language servers
 require("mason").setup({
     log_level = vim.log.levels.DEBUG
@@ -109,9 +154,6 @@ require("mason-lspconfig").setup({
     ensure_installed = {"sumneko_lua"}
 })
 
---colorscheme 
-vim.cmd([[colorscheme gruvbox]])
-require('custom-gruvbox')
 
 
 
