@@ -7,9 +7,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'nvim-lualine/lualine.nvim'
 Plug('junegunn/fzf', {['do'] = vim.fn['fzf#install']})
-Plug 'junegunn/fzf.vim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'ryanoasis/vim-devicons'
-Plug 'morhetz/gruvbox'
+Plug 'ellisonleao/gruvbox.nvim'
 Plug 'lewis6991/impatient.nvim'
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
@@ -40,39 +40,26 @@ set completeopt=menu,menuone,noselect
 ]])
 
 --colorscheme 
+vim.o.background = "dark" -- or "light" for light mode
+require("gruvbox").setup({
+  undercurl = true,
+  underline = true,
+  bold = true,
+  italic = true,
+  strikethrough = true,
+  invert_selection = false,
+  invert_signs = false,
+  invert_tabline = false,
+  invert_intend_guides = false,
+  inverse = true, -- invert background for search, diffs, statuslines and errors
+  contrast = "", -- can be "hard", "soft" or empty string
+  palette_overrides = {},
+  overrides = {},
+  dim_inactive = false,
+  transparent_mode = false,
+})
 vim.cmd([[
 colorscheme gruvbox
-highlight! link CmpItemAbbr Fg
-highlight! link CmpItemAbbrMatch orange 
-highlight! link CmpItemAbbrMatchFuzzy orange 
-highlight! link CmpItemAbbrDeprecated Fg
-highlight! link CmpItemMenu Fg
-highlight! link CmpItemKind Yellow
-highlight! link CmpItemKindText Fg
-highlight! link CmpItemKindMethod Green
-highlight! link CmpItemKindFunction Green
-highlight! link CmpItemKindConstructor Green
-highlight! link CmpItemKindField Green
-highlight! link CmpItemKindVariable Blue
-highlight! link CmpItemKindClass Yellow
-highlight! link CmpItemKindInterface Yellow
-highlight! link CmpItemKindModule Yellow
-highlight! link CmpItemKindProperty Blue
-highlight! link CmpItemKindUnit Purple
-highlight! link CmpItemKindValue Purple
-highlight! link CmpItemKindEnum Yellow
-highlight! link CmpItemKindKeyword Red
-highlight! link CmpItemKindSnippet Aqua
-highlight! link CmpItemKindColor Aqua
-highlight! link CmpItemKindFile Aqua
-highlight! link CmpItemKindReference Blue
-highlight! link CmpItemKindFolder Aqua
-highlight! link CmpItemKindEnumMember Blue
-highlight! link CmpItemKindConstant Blue
-highlight! link CmpItemKindStruct Yellow
-highlight! link CmpItemKindEvent Orange
-highlight! link CmpItemKindOperator Orange
-highlight! link CmpItemKindTypeParameter Yellow
 ]])
 
 require('custom-gruvbox')
@@ -93,9 +80,6 @@ cmp.setup({
     window = {
         -- Cmp = cmp.config.window.bordered(),
         -- documentation = cmp.config.window.bordered(),
-    },
-    view = {
-        entries = "custom"
     },
     mapping = cmp.mapping.preset.insert({
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
