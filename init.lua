@@ -45,7 +45,12 @@ require("gruvbox").setup({
   undercurl = true,
   underline = true,
   bold = true,
-  italic = true,
+  italic = {
+    strings = true,
+    comments = true,
+    operators = false,
+    folds = true,
+  },
   strikethrough = true,
   invert_selection = false,
   invert_signs = false,
@@ -58,10 +63,7 @@ require("gruvbox").setup({
   dim_inactive = false,
   transparent_mode = false,
 })
-vim.cmd([[
-colorscheme gruvbox
-]])
-
+vim.cmd("colorscheme gruvbox")
 require('custom-gruvbox')
 
 -- Set up nvim-cmp.
@@ -135,7 +137,7 @@ require("mason").setup({
     log_level = vim.log.levels.DEBUG
 })
 require("mason-lspconfig").setup({
-    ensure_installed = {"sumneko_lua"}
+    ensure_installed = {"lua_ls"}
 })
 
 

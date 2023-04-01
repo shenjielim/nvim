@@ -1,5 +1,5 @@
 --config lua language server
-require'lspconfig'.sumneko_lua.setup {
+require('lspconfig').lua_ls.setup {
     settings = {
         capabilities = CAPABILITIES,
         Lua = {
@@ -22,3 +22,4 @@ require'lspconfig'.sumneko_lua.setup {
         },
     },
 }
+
