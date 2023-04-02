@@ -15,6 +15,7 @@ set autoindent              " indent a new line the same amount as the line just
 set number                  " add line numbers
 set updatetime=50           " faster update
 set relativenumber
+set wildcharm=<Tab>         " to move down a dropdown with Tab 
 set scrolloff=8             " leave gap above file
 set wildmode=longest,list   " get bash-like tab completions
 set cc=80                  " set an 80 column border for good coding style
@@ -86,17 +87,25 @@ if has("autocmd")
 if exists('g:loaded_webdevicons')
     call webdevicons#refresh()
 endif
-
+let g:startify_custom_header = [
+\'                                                                                                                 ',    
+\'  ___ ___                                                                      ____.       _____  ______________ ', 
+\' /   |   \  ______  _  __ _____ _______   ____    ___.__. ____  __ __         |    | _____/ ____\/ ____\_____   \', 
+\'/    ~    \/  _ \ \/ \/ / \__  \\_  __ \_/ __ \  <   |  |/  _ \|  |  \        |    |/ __ \   __\\   __\   /   __/', 
+\'\    Y    (  <_> )     /   / __ \|  | \/\  ___/   \___  (  <_> )  |  /    /\__|    \  ___/|  |   |  |    |   |   ', 
+\' \___|_  / \____/ \/\_/   (____  /__|    \___  >  / ____|\____/|____/ /\  \________|\___  >__|   |__|    |___|   ', 
+\'       \/                      \/            \/   \/                  )/                \/               <___>   ', 
+\]
 ]])
 
 -- navigation keymaps
+vim.g.mapleader=" "
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 vim.keymap.set('n', 'n', "nzzzv")
 vim.keymap.set('n', 'N', "Nzzzv")
 vim.keymap.set('x', '<leader>P', "\"_dP")
-
-vim.g.mapleader=" "
+vim.keymap.set('n', '<leader>p', "\"+p")
 vim.keymap.set('n', '<leader>y', "\"+y")
 vim.keymap.set('v', '<leader>y', "\"+y")
 vim.keymap.set('n', '<leader>Y', "\"+Y")
