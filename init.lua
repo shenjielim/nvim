@@ -13,7 +13,6 @@ Plug 'dracula/vim'
 Plug 'preservim/nerdcommenter'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdtree'
 Plug 'nvim-lualine/lualine.nvim'
 Plug('junegunn/fzf', {['do'] = vim.fn['fzf#install']})
 Plug 'nvim-telescope/telescope.nvim'
