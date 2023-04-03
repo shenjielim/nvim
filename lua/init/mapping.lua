@@ -109,6 +109,7 @@ if (empty($TMUX))
                     vim.keymap.set('n', '<leader>y', "\"+y")
                     vim.keymap.set('v', '<leader>y', "\"+y")
                     vim.keymap.set('n', '<leader>Y', "\"+Y")
+                    vim.keymap.set('n', '<C-l>', ':let @/=""<CR>')
                     function FormatFile()
                         -- save current cursor position
                         local cursor_pos = vim.api.nvim_win_get_cursor(0)
