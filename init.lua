@@ -33,6 +33,10 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'mfussenegger/nvim-jdtls'
 Plug 'mhinz/vim-startify'
 Plug 'L3MON4D3/LuaSnip'
+Plug('nvim-treesitter/nvim-treesitter', {['do']= ':TSUpdate'})
+Plug 'nvim-treesitter/playground'
+Plug 'ThePrimeagen/harpoon'
+Plug 'mbbill/undotree'
 Plug('VonHeikemen/lsp-zero.nvim', {['branch'] = 'v2.x'})
 
 vim.call('plug#end')
@@ -44,7 +48,6 @@ autocmd VimEnter *
 \|   PlugInstall --sync | q
 \| endif
 ]])
-
 --startup time
 require('impatient')
 
