@@ -120,11 +120,9 @@ if (empty($TMUX))
 
                         -- return to original cursor position
                         vim.api.nvim_win_set_cursor(0, cursor_pos)
-                        vim.api.nvim_command('normal ==')
                     end
 
                     -- define a mapping for the macro
-                    vim.keymap.set('n', 'g=', ':lua FormatFile()<CR>', { noremap = true, silent = true })
-                    vim.keymap.set('n', '==', "")
+                    vim.keymap.set('n', '==', ':lua FormatFile()<CR>', { noremap = true, silent = true })
                     vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 

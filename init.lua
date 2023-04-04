@@ -37,6 +37,7 @@ Plug('nvim-treesitter/nvim-treesitter', {['do']= ':TSUpdate'})
 Plug 'nvim-treesitter/playground'
 Plug 'ThePrimeagen/harpoon'
 Plug 'mbbill/undotree'
+Plug 'Pocco81/auto-save.nvim'
 Plug('VonHeikemen/lsp-zero.nvim', {['branch'] = 'v2.x'})
 
 vim.call('plug#end')
