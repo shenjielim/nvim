@@ -35,6 +35,8 @@ Plug 'mhinz/vim-startify'
 Plug 'L3MON4D3/LuaSnip'
 Plug('nvim-treesitter/nvim-treesitter', {['do']= ':TSUpdate'})
 Plug 'nvim-treesitter/playground'
+Plug 'nvim-treesitter/nvim-treesitter-context'
+Plug 'nvim-treesitter/nvim-treesitter-refactor'
 Plug 'ThePrimeagen/harpoon'
 Plug 'mbbill/undotree'
 Plug 'Pocco81/auto-save.nvim'
@@ -57,4 +59,3 @@ set completeopt=menu,menuone,noselect
 ]])
 
 require('init')
-
