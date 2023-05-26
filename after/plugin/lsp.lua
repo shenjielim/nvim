@@ -14,7 +14,7 @@ lsp.ensure_installed({
     "tsserver",-- Typescript
     "sqlls",   -- SQL
     "rust_analyzer", -- Rust
-    "ymalls",  --yaml 
+    "yamlls",  --yaml 
     "lemminx", -- xml
     "pyright", -- python
     "marksman",-- Markdown
