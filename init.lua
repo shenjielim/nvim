@@ -34,6 +34,7 @@ Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'mfussenegger/nvim-jdtls'
 Plug 'mhinz/vim-startify'
 Plug 'L3MON4D3/LuaSnip'
+Plug 'm4xshen/autoclose.nvim'
 Plug('nvim-treesitter/nvim-treesitter', {['do']= ':TSUpdate'})
 Plug 'nvim-treesitter/playground'
 Plug 'nvim-treesitter/nvim-treesitter-context'
