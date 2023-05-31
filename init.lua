@@ -39,7 +39,9 @@ Plug('nvim-treesitter/nvim-treesitter', {['do']= ':TSUpdate'})
 Plug 'nvim-treesitter/playground'
 Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'nvim-treesitter/nvim-treesitter-refactor'
+Plug 'windwp/nvim-ts-autotag'
 Plug 'ThePrimeagen/harpoon'
+Plug 'onsails/lspkind.nvim'
 Plug 'mbbill/undotree'
 Plug 'Pocco81/auto-save.nvim'
 Plug('VonHeikemen/lsp-zero.nvim', {['branch'] = 'v2.x'})
