@@ -98,31 +98,30 @@ if (empty($TMUX))
                     \]
                     ]])
 
-                    -- navigation keymaps
-                    vim.g.mapleader=" "
-                    vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
-                    vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
-                    vim.keymap.set('n', 'n', "nzzzv")
-                    vim.keymap.set('n', 'N', "Nzzzv")
-                    vim.keymap.set('x', '<leader>P', "\"_dP")
-                    vim.keymap.set('n', '<leader>p', "\"+p")
-                    vim.keymap.set('n', '<leader>y', "\"+y")
-                    vim.keymap.set('v', '<leader>y', "\"+y")
-                    vim.keymap.set('n', '<leader>Y', "\"+Y")
-                    vim.keymap.set('n', '<C-l>', ':let @/=""<CR>')
-                    function FormatFile()
-                        -- save current cursor position
-                        local cursor_pos = vim.api.nvim_win_get_cursor(0)
+-- navigation keymaps
+vim.g.mapleader = " "
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+vim.keymap.set('n', 'n', "nzzzv")
+vim.keymap.set('n', 'N', "Nzzzv")
+vim.keymap.set('x', '<leader>P', "\"_dP")
+vim.keymap.set('n', '<leader>p', "\"+p")
+vim.keymap.set('n', '<leader>y', "\"+y")
+vim.keymap.set('v', '<leader>y', "\"+y")
+vim.keymap.set('n', '<leader>Y', "\"+Y")
+vim.keymap.set('n', '<C-l>', ':let @/=""<CR>')
+function FormatFile()
+    -- save current cursor position
+    local cursor_pos = vim.api.nvim_win_get_cursor(0)
 
-                        -- indent and format entire file
-                        vim.api.nvim_command('%s/\\s\\+$//e') -- remove trailing whitespace
-                        vim.api.nvim_command('normal gg=G')
+    -- indent and format entire file
+    vim.api.nvim_command('%s/\\s\\+$//e')                     -- remove trailing whitespace
+    vim.api.nvim_command('normal gg=G')
 
-                        -- return to original cursor position
-                        vim.api.nvim_win_set_cursor(0, cursor_pos)
-                    end
+    -- return to original cursor position
+    vim.api.nvim_win_set_cursor(0, cursor_pos)
+end
 
-                    -- define a mapping for the macro
-                    vim.keymap.set('n', '==', ':lua FormatFile()<CR>', { noremap = true, silent = true })
-                    vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
+-- define a mapping for the macro
+vim.keymap.set('n', '==', ':lua FormatFile()<CR>', { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
