@@ -6,7 +6,21 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 -- (Optional) Configure lua language server for neovim
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+local nvim_lsp = require('lspconfig')
+nvim_lsp.lua_ls.setup(lsp.nvim_lua_ls())
+
+nvim_lsp.denols.setup({
+    root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonrc"),
+  single_file_support = true
+})
+nvim_lsp.tsserver.setup {
+  root_dir = nvim_lsp.util.root_pattern("package.json"),
+  single_file_support = false
+}
+-- Configuration for denols
+vim.g.markdown_fenced_languages = {
+    "ts=typescript"
+}
 -- Autoinstall language servers
 lsp.ensure_installed({
     "lua_ls",        -- Lua
@@ -27,6 +41,7 @@ lsp.ensure_installed({
     "angularls",     -- Angular
 
 })
+
 lsp.setup()
 
 require('lspkind').init({
