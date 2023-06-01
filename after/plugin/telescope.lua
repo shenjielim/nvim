@@ -83,4 +83,9 @@ vim.keymap.set('n', '<C-F>', function()
 end)
 vim.keymap.set('n', '<leader>b', builtin.buffers, {})
 vim.keymap.set('n', '<leader>h', builtin.help_tags, {})
-
+vim.api.nvim_set_keymap(
+        'n',
+        '<C-p>',
+        ":lua require'telescope'.extensions.project.project{}<CR>",
+        {noremap = true, silent = true}
+)
