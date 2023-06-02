@@ -1,5 +1,10 @@
 local fb_actions = require "telescope._extensions.file_browser.actions"
 require("telescope").setup {
+pickers = {
+    lsp_references = {
+        show_line = false,
+    },
+},
   extensions = {
     file_browser = {
       -- path
@@ -65,7 +70,7 @@ require("telescope").setup {
 
 require('telescope').load_extension"file_browser"
 
--- open file_browser with the path of the current buffer
+--open file_browser with the path of the current buffer
 vim.api.nvim_set_keymap(
   "n",
   "<leader><leader>",
@@ -83,6 +88,8 @@ vim.keymap.set('n', '<C-F>', function()
 end)
 vim.keymap.set('n', '<leader>b', builtin.buffers, {})
 vim.keymap.set('n', '<leader>h', builtin.help_tags, {})
+
+ --telescope project
 vim.api.nvim_set_keymap(
         'n',
         '<C-p>',
