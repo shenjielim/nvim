@@ -20,6 +20,7 @@ nvim_lsp.tsserver.setup {
     root_dir = nvim_lsp.util.root_pattern("package.json"),
     single_file_support = false
 }
+
 -- Configuration for denols
 vim.g.markdown_fenced_languages = {
     "ts=typescript"

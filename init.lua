@@ -36,6 +36,7 @@ Plug 'mfussenegger/nvim-jdtls'
 Plug 'mhinz/vim-startify'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'kkharji/sqlite.lua'
+Plug 'nanotee/sqls.nvim'
 Plug 'm4xshen/autoclose.nvim'
 Plug('nvim-treesitter/nvim-treesitter', {['do']= ':TSUpdate'})
 Plug 'nvim-treesitter/playground'
@@ -49,6 +50,7 @@ Plug 'prochri/telescope-all-recent.nvim'
 Plug 'onsails/lspkind.nvim'
 Plug 'mbbill/undotree'
 Plug 'Pocco81/auto-save.nvim'
+Plug 'xiyaowong/transparent.nvim'
 Plug('VonHeikemen/lsp-zero.nvim', {['branch'] = 'v2.x'})
 
 vim.call('plug#end')
