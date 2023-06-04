@@ -17,6 +17,9 @@ chmod u+x nvim.appimage
   git clone git@github.com:shenjielim/nvim.git ~/AppData/Local
   
   # For Linux
+  # Make sure you have ssh-agent on
+  eval "$(ssh-agent -s)"
+  ssh-add ~/.ssh/<private_key>
   git clone git@github.com:shenjielim/nvim.git ~/.config
 ```
 
