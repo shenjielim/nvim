@@ -41,8 +41,8 @@ lsp.ensure_installed({
     "gopls",         -- Golang
     "dockerls",      -- Docker
     "cssls",         -- CSS
-    "bashls",        -- bash
     "angularls",     -- Angular
+    "beautysh"       -- bash, sh, zsh   
 
 })
 
