@@ -8,6 +8,9 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set('n', 'gl', '<cmd>Telescope diagnostics<cr>', { buffer = true })
 end)
 
+-- see ftplugin/java.lua for jdtls config
+lsp.skip_server_setup({'jdtls'})
+
 -- (Optional) Configure lua language server for neovim
 local nvim_lsp = require('lspconfig')
 nvim_lsp.lua_ls.setup(lsp.nvim_lua_ls())
@@ -29,6 +32,7 @@ vim.g.markdown_fenced_languages = {
 lsp.ensure_installed({
     "lua_ls",        -- Lua
     "denols",        -- Deno
+    "bashls",        -- bash 
     "tsserver",      -- Typescript
     "sqlls",         -- SQL
     "rust_analyzer", -- Rust
@@ -42,7 +46,6 @@ lsp.ensure_installed({
     "dockerls",      -- Docker
     "cssls",         -- CSS
     "angularls",     -- Angular
-    "beautysh"       -- bash, sh, zsh   
 
 })
 
