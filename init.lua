@@ -4,9 +4,9 @@ local Plug = vim.fn['plug#']
 -- change directory depending on OS
 local pluginPath
 if vim.fn.has("win32") == 1 then
-  pluginPath = vim.loop.os_homedir() .. '\\AppData\\Local\\nvim\\plugged'
+    pluginPath = vim.loop.os_homedir() .. '\\AppData\\Local\\nvim\\plugged'
 else
-  pluginPath = vim.loop.os_homedir() .. '/.config/nvim/plugged'
+    pluginPath = vim.loop.os_homedir() .. '/.config/nvim/plugged'
 end
 vim.call('plug#begin', pluginPath)
 Plug 'dracula/vim'
@@ -29,6 +29,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
+--Plug 'mfussenegger/nvim-dap'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-vsnip'
