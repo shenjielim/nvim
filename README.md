@@ -28,6 +28,9 @@ chmod u+x nvim.appimage
 ### Neovim
 ```bash
   sudo apt-get install neovim
+
+## if you need this when you get treesitter errors for missing stdin.h
+sudo apt-get install libc6-dev
 ```
 
 ### Telescope
