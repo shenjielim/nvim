@@ -31,21 +31,21 @@ vim.g.markdown_fenced_languages = {
 -- Autoinstall language servers
 lsp.ensure_installed({
     "lua_ls",        -- Lua
-    "denols",        -- Deno
-    "bashls",        -- bash 
-    "tsserver",      -- Typescript
-    "sqlls",         -- SQL
-    "rust_analyzer", -- Rust
-    "yamlls",        --yaml
-    "lemminx",       -- xml
-    "pyright",       -- python
-    "marksman",      -- Markdown
-    "jdtls",         -- Java
-    "html",          -- html
-    "gopls",         -- Golang
-    "dockerls",      -- Docker
-    "cssls",         -- CSS
-    "angularls",     -- Angular
+    --"denols",        -- Deno
+    --"bashls",        -- bash 
+    --"tsserver",      -- Typescript
+    --"sqlls",         -- SQL
+    --"rust_analyzer", -- Rust
+    --"yamlls",        --yaml
+    --"lemminx",       -- xml
+    --"pyright",       -- python
+    --"marksman",      -- Markdown
+    --"jdtls",         -- Java
+    --"html",          -- html
+    --"gopls",         -- Golang
+    --"dockerls",      -- Docker
+    --"cssls",         -- CSS
+    --"angularls",     -- Angular
 
 })
 
