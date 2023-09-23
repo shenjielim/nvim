@@ -1,71 +1,99 @@
--- Package plugins
-
-local Plug = vim.fn['plug#']
--- change directory depending on OS
-local pluginPath
-if vim.fn.has("win32") == 1 then
-    pluginPath = vim.loop.os_homedir() .. '\\AppData\\Local\\nvim\\plugged'
-else
-    pluginPath = vim.loop.os_homedir() .. '/.config/nvim/plugged'
+-- setup lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
-vim.call('plug#begin', pluginPath)
-Plug 'dracula/vim'
-Plug 'preservim/nerdcommenter'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'tpope/vim-fugitive'
-Plug 'nvim-lualine/lualine.nvim'
-Plug('junegunn/fzf', {['do'] = vim.fn['fzf#install']})
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-file-browser.nvim'
-Plug 'brookhong/telescope-pathogen.nvim'
-Plug 'ryanoasis/vim-devicons'
-Plug 'kndndrj/nvim-dbee'
-Plug 'MunifTanjim/nui.nvim'
-Plug 'ellisonleao/gruvbox.nvim'
-Plug 'google/executor.nvim'
-Plug 'lewis6991/impatient.nvim'
-Plug 'williamboman/mason.nvim'
-Plug('williamboman/mason-lspconfig.nvim', {['do'] = ':MasonUpdate'})
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
---Plug 'mfussenegger/nvim-dap'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-vsnip'
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
-Plug 'mfussenegger/nvim-jdtls'
-Plug 'mhinz/vim-startify'
-Plug 'L3MON4D3/LuaSnip'
-Plug 'kkharji/sqlite.lua'
-Plug 'nanotee/sqls.nvim'
-Plug 'm4xshen/autoclose.nvim'
-Plug('nvim-treesitter/nvim-treesitter', {['do']= ':TSUpdate'})
-Plug 'nvim-treesitter/playground'
-Plug 'nvim-treesitter/nvim-treesitter-context'
-Plug 'nvim-treesitter/nvim-treesitter-refactor'
-Plug 'windwp/nvim-ts-autotag'
-Plug 'ThePrimeagen/harpoon'
-Plug 'ThePrimeagen/refactoring.nvim'
-Plug 'nvim-telescope/telescope-project.nvim'
-Plug 'prochri/telescope-all-recent.nvim'
-Plug 'onsails/lspkind.nvim'
-Plug 'mbbill/undotree'
-Plug 'Pocco81/auto-save.nvim'
-Plug 'xiyaowong/transparent.nvim'
-Plug('VonHeikemen/lsp-zero.nvim', {['branch'] = 'v2.x'})
+vim.opt.rtp:prepend(lazypath)
+vim.g.mapleader = " "
+require("lazy").setup({
+    {
+        "ellisonleao/gruvbox.nvim",
+        lazy = false,
+        priority = 1000
+    },
+    "dracula/vim",
+    "preservim/nerdcommenter",
+    "tpope/vim-fugitive",
+    "nvim-lualine/lualine.nvim",
+    "junegunn/fzf",
+    {
+        "nvim-telescope/telescope-file-browser.nvim",
+        dependencies = {
+            "nvim-telescope/telescope.nvim",
+            "nvim-lua/plenary.nvim",
+        }
+    },
+    {
+        'kristijanhusak/vim-dadbod-ui',
+        keys = {
+            {
+                '<C-d>',
+                ":DBUIToggle<cr>",
+                mode = 'n',
+            }
+        },
+        dependencies = {
+            { 'tpope/vim-dadbod', lazy = true },
+            { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true },
+        },
+        cmd = {
+            'DBUI',
+            'DBUIToggle',
+            'DBUIAddConnection',
+            'DBUIFindBuffer',
+        },
+        init = function()
+            -- Your DBUI configuration
+            vim.g.db_ui_use_nerd_fonts = 1
+        end,
+    },
+    "brookhong/telescope-pathogen.nvim",
+    "ryanoasis/vim-devicons",
+    "MunifTanjim/nui.nvim",
+    "google/executor.nvim",
+    "lewis6991/impatient.nvim",
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "mfussenegger/nvim-dap",
+    "hrsh7th/cmp-cmdline",
+    "hrsh7th/nvim-cmp",
+    "hrsh7th/cmp-vsnip",
+    "hrsh7th/vim-vsnip",
+    "hrsh7th/vim-vsnip-integ",
+    "mfussenegger/nvim-jdtls",
+    "mhinz/vim-startify",
+    "L3MON4D3/LuaSnip",
+    "kkharji/sqlite.lua",
+    "nanotee/sqls.nvim",
+    "m4xshen/autoclose.nvim",
+    "nvim-treesitter/nvim-treesitter",
+    "nvim-treesitter/playground",
+    "nvim-treesitter/nvim-treesitter-context",
+    "nvim-treesitter/nvim-treesitter-refactor",
+    "windwp/nvim-ts-autotag",
+    "ThePrimeagen/harpoon",
+    "ThePrimeagen/refactoring.nvim",
+    "nvim-telescope/telescope-project.nvim",
+    "prochri/telescope-all-recent.nvim",
+    "onsails/lspkind.nvim",
+    "mbbill/undotree",
+    "Pocco81/auto-save.nvim",
+    "xiyaowong/transparent.nvim",
+    "VonHeikemen/lsp-zero.nvim",
+})
 
-vim.call('plug#end')
 
---auto download plugins if missing
-vim.cmd([[
-autocmd VimEnter *
-\  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-\|   PlugInstall --sync | q
-\| endif
-]])
 --startup time
 require('impatient')
 
