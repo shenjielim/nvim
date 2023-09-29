@@ -34,7 +34,7 @@ require("lazy").setup({
         'kristijanhusak/vim-dadbod-ui',
         keys = {
             {
-                '<C-d>',
+                '<leader>d',
                 ":DBUIToggle<cr>",
                 mode = 'n',
             }
@@ -53,6 +53,10 @@ require("lazy").setup({
             -- Your DBUI configuration
             vim.g.db_ui_use_nerd_fonts = 1
         end,
+    },
+    {
+        "christoomey/vim-tmux-navigator",
+        lazy=false
     },
     "brookhong/telescope-pathogen.nvim",
     "ryanoasis/vim-devicons",
